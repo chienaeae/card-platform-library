@@ -2,7 +2,7 @@ import express from "express";
 import {AuthProvider, BaseController} from "../../../../core/infra/BaseController";
 import {inject, injectable} from "inversify";
 import {GetOrdersResponseDTO, IGetOrdersUseCase} from "./interfaces/IGetOrdersUseCase";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {CardOrderingError} from "../shared/CardOrderingError";
 
 @injectable()

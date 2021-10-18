@@ -4,7 +4,7 @@ import {Result} from "../../../../core/logic/Result";
 import {IdentityUser} from "../../domain/IdentityUser";
 import {ISigner} from "../../services/Authorization/interfaces/ISigner";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 
 
 export interface TokenResponseDTO {

@@ -4,7 +4,7 @@ import {
     CheckCardIndexRequestDTO,
     ICheckCardIndexUseCase
 } from "./interfaces/ICheckCardIndexUseCase";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {ICardRepo} from "../../../card/repos/interfaces/ICardRepo";
 import {left, right} from "../../../../core/logic/Either";
 import {Result} from "../../../../core/logic/Result";

@@ -1,6 +1,6 @@
 import {IPlaceOrderUseCase, PlaceOrderDTO, PlaceOrderUseCaseResponse} from "./interfaces/IPlaceOrderUseCase";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {FetchTraderResponseDTO, IFetchTraderUseCase} from "../shared/interfaces/IFetchTraderUseCase";
 import {left, right} from "../../../../core/logic/Either";
 import {Result} from "../../../../core/logic/Result";

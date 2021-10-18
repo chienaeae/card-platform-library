@@ -1,6 +1,6 @@
 import {inject, injectable} from "inversify";
 import {ITraderRepo} from "../../../trader/repos/interfaces/ITraderRepo";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {UserId} from "../../../identityUser/domain/UserId";
 import {UniqueEntityID} from "../../../../core/domain/UniqueEntityID";
 import {

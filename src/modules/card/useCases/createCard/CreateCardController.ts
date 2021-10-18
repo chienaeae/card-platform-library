@@ -1,6 +1,6 @@
 import {inject, injectable} from "inversify";
 import {AuthProvider, BaseController} from "../../../../core/infra/BaseController";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {UseCase} from "../../../../core/domain/UseCase";
 import {CreateCardDTO} from "./CreateCardDTO";
 import {CreateCardUseCaseResponse} from "./CreateCardUseCase";

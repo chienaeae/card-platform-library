@@ -1,7 +1,7 @@
 import express from "express";
 import {AuthProvider, Principal} from "../../../../core/infra/BaseController";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {ISigner} from "../../services/Authorization/interfaces/ISigner";
 
 

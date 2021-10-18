@@ -9,7 +9,7 @@ import {IdentityUser} from "../../domain/IdentityUser";
 import {IIdentityUserRepo} from "../../repos/interfaces/IIdentityUserRepo";
 import {RegisterErrors} from "./RegisterError";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 
 export type RegisterUseCaseResponse = Either<GenericAppError.UnexpectedError | RegisterErrors.AccountAlreadyExists | Result<any>, Result<void>>
 

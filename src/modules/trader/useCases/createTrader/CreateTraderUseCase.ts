@@ -7,7 +7,7 @@ import {Trader} from "../../domain/Trader";
 import {UserId} from "../../../identityUser/domain/UserId";
 import {UniqueEntityID} from "../../../../core/domain/UniqueEntityID";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {TraderRepo} from "../../repos/TraderRepo";
 import {ITraderRepo} from "../../repos/interfaces/ITraderRepo";
 import {CreateTraderError} from "./CreateTraderError";

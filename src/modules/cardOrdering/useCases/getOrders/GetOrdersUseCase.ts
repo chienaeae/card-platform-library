@@ -5,7 +5,7 @@ import {
     GetOrderUseCaseResponse,
     IGetOrdersUseCase
 } from "./interfaces/IGetOrdersUseCase";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {FetchTraderResponseDTO, IFetchTraderUseCase} from "../shared/interfaces/IFetchTraderUseCase";
 import {ICardOrderRepo} from "../../repos/interfaces/ICardOrderRepo";
 import {TraderId} from "../../../trader/domain/TraderId";

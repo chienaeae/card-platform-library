@@ -1,7 +1,7 @@
 import {AuthProvider, BaseController} from "../../../../core/infra/BaseController";
 import express from "express";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {PlaceOrderRequestDTO} from "./PlaceOrderRequestDTO";
 import {IPlaceOrderUseCase, PlaceOrderDTO} from "./interfaces/IPlaceOrderUseCase";
 import {CardOrderingError} from "../shared/CardOrderingError";
