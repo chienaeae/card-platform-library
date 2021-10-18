@@ -8,7 +8,7 @@ import {ICardRepo} from "../../repos/interfaces/ICardRepo";
 import {Card} from "../../domain/Card";
 import {CreateTraderUseCaseResponse} from "../../../trader/useCases/createTrader/CreateTraderUseCase";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 
 export type CreateCardUseCaseResponse = Either<CreateCardError.CardNameUsed | GenericAppError.UnexpectedError | Result<any>, Result<void>>
 

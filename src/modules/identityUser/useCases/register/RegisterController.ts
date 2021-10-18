@@ -5,7 +5,7 @@ import {RegisterUseCase, RegisterUseCaseResponse} from "./RegisterUseCase";
 import {RegisterErrors} from "./RegisterError";
 import {UseCase} from "../../../../core/domain/UseCase";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 
 @injectable()
 export class RegisterController extends BaseController {

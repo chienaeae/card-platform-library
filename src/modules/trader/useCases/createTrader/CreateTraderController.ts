@@ -1,6 +1,6 @@
 import * as express from "express";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 import {AuthProvider, BaseController} from "../../../../core/infra/BaseController";
 import {UseCase} from "../../../../core/domain/UseCase";
 import {CreateTraderDTO} from "./CreateTraderDTO";

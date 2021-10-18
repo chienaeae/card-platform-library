@@ -8,7 +8,7 @@ import {IIdentityUserRepo} from "../../repos/interfaces/IIdentityUserRepo";
 import {IdentityUser} from "../../domain/IdentityUser";
 import {AuthErrors} from "./AuthError";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../../../infra/inversify/config/types";
+import {TYPES} from "../../../../infra/inversify/types";
 
 export type AuthResponse = Either<AuthErrors.EmailNotExists |
     AuthErrors.PasswordNotMatches |
