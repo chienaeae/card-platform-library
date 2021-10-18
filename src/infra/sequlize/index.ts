@@ -7,7 +7,7 @@ import {Sequelize} from "sequelize-typescript";
 import {SequelizeOptions} from "sequelize-typescript/dist/sequelize/sequelize/sequelize-options";
 
 
-export function initSequelize(options: SequelizeOptions) : Sequelize{
+export default function initSequelize(options: SequelizeOptions) : Sequelize{
     const sequelize: Sequelize = new Sequelize(options)
     sequelize.addModels([CardModel, CardOrderModel, CardTradeModel, TraderModel, IdentityUserModel])
     return sequelize
