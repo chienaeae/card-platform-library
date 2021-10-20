@@ -53,6 +53,7 @@
     "sequelize": "^6.7.0",
     "sequelize-typescript": "^2.1.1",
     "shallow-equal-object": "^1.1.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "sqs-consumer": "^5.6.0"
   }
 }
