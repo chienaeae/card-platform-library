@@ -9,7 +9,7 @@ interface CardOrderAttributes {
     order_price: number;
     order_trader_id: string;
     order_card_index: number;
-    order_status: number;
+    order_status: string;
     order_type: string;
     ordered_time?: Date;
     created_time?: Date;
@@ -69,10 +69,11 @@ export class CardOrder extends Model<CardOrderAttributes> {
     public order_card_index!: number;
 
     @Column({
-        type: DataType.TINYINT,
+        type: DataType.ENUM,
+        values: ['idle', 'failed', 'processed', 'completed'],
         allowNull: false
     })
-    public order_status!: number;
+    public order_status!: string;
 
     @Column({
         type: DataType.ENUM,
