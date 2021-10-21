@@ -9,6 +9,7 @@ export abstract class BaseQueuePoller<MessageProps> extends BaseQueueClient{
     protected constructor(config: QueueConfig & MetaConfig) {
         super({...config}, {...config});
         this.poller = Consumer.create({
+            queueUrl: this.queueConfig.queueUrl,
             sqs: this.client,
             handleMessage: async (message: SQSMessage) => {
                 this.onMessageHandled(JSON.parse(message.Body) as MessageProps, message as Message)

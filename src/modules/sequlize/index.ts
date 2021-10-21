@@ -34,13 +34,14 @@ export class CardPlatformSequel {
             port: config.port ? config.port : 3306,
             dialectOptions: {
                 multipleStatements: true,
+                decimalNumbers: true
             },
             pool: {
                 max: 5,
                 min: 0,
                 idle: 10000
             },
-            logging: false
+            logging: true
         });
         this.sequelizeInstance.addModels([CardModel, CardOrderModel, CardTradeModel, TraderModel, IdentityUserModel])
     }
