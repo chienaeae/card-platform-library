@@ -1,27 +1,24 @@
-import {SendMessageResult} from "aws-sdk/clients/sqs";
 import {AWSError} from "aws-sdk";
-import {BaseQueueClient, FIFOPublisher, MetaConfig, QueueConfig} from "../core/infra/BaseQueueClient";
-import {QueueMessage} from "../core/infra/QueueMessage";
-import {OrderingMessageProps} from "./OrderingMessageProps";
+import {BaseQueueClient, MetaConfig, QueueConfig} from "../core/infra/BaseQueueClient";
+import {OrderingMessage, OrderingMessageProps} from "./OrderingMessageProps";
+import {FIFOPublisher, PublishedMessageResult} from "../core/infra/interfaces/FIFOPublisher";
 
 
-
-
-export class OrderingQueueFIFOPublisher extends BaseQueueClient implements FIFOPublisher {
+export class OrderingQueueFIFOPublisher extends BaseQueueClient implements FIFOPublisher<OrderingMessage> {
     constructor(config: QueueConfig & MetaConfig) {
         super({...config}, {...config});
     }
 
-    async sendMessage(messageBody: OrderingMessageProps, messageDeduplicationId: string, messageGroupId: string): Promise<SendMessageResult> {
+    async sendMessage(messageBody: OrderingMessageProps, messageDeduplicationId: string, messageGroupId: string): Promise<PublishedMessageResult> {
         return new Promise(async (resolve, reject) => {
             this.client.sendMessage({
                 QueueUrl: this.queueConfig.queueUrl,
-                MessageBody: new QueueMessage<OrderingMessageProps>(messageBody).stringify(),
+                MessageBody: new OrderingMessage(messageBody).stringify(),
                 MessageDeduplicationId: messageDeduplicationId,
                 MessageGroupId: messageGroupId,
-            }, (err: AWSError, data: SendMessageResult) => {
+            }, (err: AWSError, data: PublishedMessageResult) => {
                 if (err) {
-                    console.log(`sent message sqs queue with error [${err.message}] occurred`)
+                    console.log(`Sent message sqs queue with error: ${err.message}`)
                     reject(err);
                 }
                 resolve(data);

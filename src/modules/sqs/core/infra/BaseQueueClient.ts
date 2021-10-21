@@ -1,5 +1,4 @@
 import {AWSError, SQS} from "aws-sdk";
-import {SendMessageResult} from "aws-sdk/clients/sqs";
 
 export interface MetaConfig {
     apiVersion?: string
@@ -25,4 +24,29 @@ export abstract class BaseQueueClient {
             region: metaConfig.region
         });
     }
+
+    public async authQueuesStatus(): Promise<boolean> {
+        return await new Promise( (resolve) => {
+            this.client.listQueues(async (err, data) => {
+                let authedResult = false
+                if (err) {
+                    console.log(`Aws connection failed`)
+                    resolve( authedResult)
+                }
+                await data.QueueUrls.forEach(url => {
+                    if (url === this.queueConfig.queueUrl) {
+                        authedResult = true
+                    }
+                })
+                if (!authedResult){
+                    console.log(`Aws sqs queue url doesnt exit`)
+                }
+                console.log(`Aws has been established successfully.`)
+                resolve( authedResult)
+            })
+        })
+    }
+
+
 }
+
