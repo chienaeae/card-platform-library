@@ -59,12 +59,14 @@ export class CardPlatformSequel {
         }
     }
 
-    authConnection(): void {
+    async authConnection(): Promise<boolean> {
         try {
-            this.sequelizeInstance.authenticate();
+            await this.sequelizeInstance.authenticate();
             console.log('Connection has been established successfully.');
+            return true
         } catch (error) {
             console.error('Unable to connect to the database:', error);
+            return false
         }
     }
 
