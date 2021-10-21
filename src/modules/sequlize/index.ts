@@ -3,7 +3,7 @@ import {CardOrder as CardOrderModel} from "./models/cardOrdering/CardOrder.model
 import {CardTrade as CardTradeModel} from "./models/cardTrade/CardTrade.model";
 import {Trader as TraderModel} from "./models/trader/Trader.model";
 import {IdentityUser as IdentityUserModel} from "./models/identityUser/IdentityUser.model";
-import {Sequelize} from "sequelize-typescript";
+import {Sequelize, SequelizeOptions} from "sequelize-typescript";
 
 export interface DatabaseCredential {
     username?: string;
@@ -13,7 +13,7 @@ export interface DatabaseCredential {
     port?: number
 }
 
-export interface Models{
+export interface Models {
     cardModel: typeof CardModel
     cardOrderModel: typeof CardOrderModel;
     cardTradeModel: typeof CardTradeModel;
@@ -21,10 +21,11 @@ export interface Models{
     identityUserModel: typeof IdentityUserModel;
 }
 
+
 export class CardPlatformSequel {
     private readonly sequelizeInstance?: Sequelize;
 
-    private constructor(config: DatabaseCredential) {
+    private constructor(config: DatabaseCredential, overrideOriginConfig?: SequelizeOptions) {
         this.sequelizeInstance = new Sequelize({
             database: config.database,
             username: config.username,
@@ -41,7 +42,8 @@ export class CardPlatformSequel {
                 min: 0,
                 idle: 10000
             },
-            logging: true
+            logging: false,
+            ...overrideOriginConfig
         });
         this.sequelizeInstance.addModels([CardModel, CardOrderModel, CardTradeModel, TraderModel, IdentityUserModel])
     }
@@ -53,9 +55,9 @@ export class CardPlatformSequel {
     get models(): Models {
         return {
             cardModel: CardModel,
-            cardOrderModel:CardOrderModel,
-            cardTradeModel:CardTradeModel,
-            traderModel:TraderModel,
+            cardOrderModel: CardOrderModel,
+            cardTradeModel: CardTradeModel,
+            traderModel: TraderModel,
             identityUserModel: IdentityUserModel,
         }
     }
@@ -71,8 +73,8 @@ export class CardPlatformSequel {
         }
     }
 
-    public static create(config: DatabaseCredential): CardPlatformSequel {
-        return new CardPlatformSequel(config)
+    public static create(config: DatabaseCredential, overrideOriginConfig?: SequelizeOptions): CardPlatformSequel {
+        return new CardPlatformSequel(config, overrideOriginConfig)
     }
 
 }
