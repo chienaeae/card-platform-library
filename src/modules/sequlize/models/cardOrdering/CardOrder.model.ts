@@ -39,7 +39,7 @@ export class CardOrder extends Model<CardOrderAttributes> {
     public order_id!: string;
 
     @Column({
-        type: DataType.DECIMAL,
+        type: DataType.DECIMAL(12,2),
         allowNull: false
     })
     public order_price!: number;
