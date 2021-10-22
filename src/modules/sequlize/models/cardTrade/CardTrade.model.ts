@@ -4,7 +4,7 @@ import {CardOrder} from "../cardOrdering/CardOrder.model";
 
 interface CardTradeAttributes{
     trade_id: string;
-    trade_card_id: number;
+    trade_card_index: string;
     buy_order_id: string;
     sell_order_id: string;
 
@@ -29,16 +29,16 @@ export class CardTrade extends Model<CardTradeAttributes>{
     public trade_id!: string;
 
     @Column({
-        type: DataType.UUID,
+        type: DataType.INTEGER,
         allowNull: false,
         references: {
             model: 'card',
-            key: 'card_id'
+            key: 'card_index'
         },
         onUpdate: 'cascade',
         onDelete: 'no action'
     })
-    public trade_card_id!: string;
+    public trade_card_index!: number;
 
     @Column({
         type: DataType.UUID,
@@ -69,7 +69,7 @@ export class CardTrade extends Model<CardTradeAttributes>{
 
 
     @BelongsTo(() => Card,
-        {foreignKey: 'trade_card_id', targetKey: 'card_id', as: 'Card'})
+        {foreignKey: 'trade_card_index', targetKey: 'card_index', as: 'Card'})
     public trade_card: Card
 
     @BelongsTo(() => CardOrder,

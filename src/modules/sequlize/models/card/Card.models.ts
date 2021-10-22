@@ -49,6 +49,6 @@ export class Card extends Model<CardAttributes> {
 
 
     @HasMany(() => CardTrade,
-        {foreignKey: 'trade_card_id', sourceKey: 'card_id', as: 'CardTrade'})
+        {foreignKey: 'trade_card_index', sourceKey: 'card_index', as: 'CardTrade'})
     public cardTrades: CardTrade[]
 }
