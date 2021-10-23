@@ -5,6 +5,7 @@ import {CardOrder} from "../cardOrdering/CardOrder.model";
 interface CardTradeAttributes{
     trade_id: string;
     trade_card_index: string;
+    trade_price: number;
     buy_order_id: string;
     sell_order_id: string;
 
@@ -39,6 +40,13 @@ export class CardTrade extends Model<CardTradeAttributes>{
         onDelete: 'no action'
     })
     public trade_card_index!: number;
+
+
+    @Column({
+        type: DataType.DECIMAL(12,2),
+        allowNull: false
+    })
+    public trade_price!: number;
 
     @Column({
         type: DataType.UUID,
